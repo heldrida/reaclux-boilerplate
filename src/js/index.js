@@ -9,7 +9,6 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-// include the stylesheet entry point
 require('../sass/app.scss');
 
 const middlewares = [thunk, routerMiddleware(browserHistory)];

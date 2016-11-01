@@ -47,7 +47,7 @@ gulp.task("webpack:server", function(callback) {
 
 });
 
-gulp.task("build", ['test', 'html'], function () {
+gulp.task("build", ['html'], function () {
     // run webpack
     webpack(webpackProductionConfig, function (err, stats) {
         if(err) throw new gutil.PluginError("webpack", err);
@@ -104,7 +104,7 @@ gulp.task('openBrowser', function () {
 
 gulp.task('watch', function () {
 	gulp.watch('./src/index.html', ['html']);
-	gulp.watch('./src/js/**/*.js', ['test']);
+	gulp.watch('./src/js/**/*.js');
 });
 
 gulp.task('dev', ['default']);
