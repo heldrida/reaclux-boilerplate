@@ -17,8 +17,12 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot-loader", "babel-loader"] },
-            { test: /\.scss$/, loader: 'style!css!sass' },
-			{ test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' }
+			{ test: /\.scss$/, loader: 'style!css!sass' },
+			{ test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/, loader: 'file-loader' },
+			{
+				test: /\.png$/,
+				loader: "file?name=[path][name].[ext]"
+			}
 		]
 	},
 	plugins: [
@@ -26,6 +30,11 @@ module.exports = {
 			inject: true,
 			template: __dirname + '/src/' + 'index.html',
 			filename: 'index.html'
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('development')
+			}
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin()
