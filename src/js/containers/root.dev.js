@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware, push } from 'react-router-redux';
-import routes from './routes';
+import routes from '../routes';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import reducers from './reducers';
+import reducers from '../reducers';
 import thunk from 'redux-thunk';
-import DevTools from './containers/devTools';
+import DevTools from './devTools';
 
 // include the stylesheet entry point
-require('../sass/app.scss');
+require('../../sass/app.scss');
 
 const store = createStore(
 	reducers,
@@ -25,7 +25,7 @@ export default class Root extends Component {
     return (
 		<Provider store={ store }>
 			<div>
-				<Router history={ history } routes={ routes } />\
+				<Router history={ history } routes={ routes } />
 				<DevTools />
 			</div>
 		</Provider>
