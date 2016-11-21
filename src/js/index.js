@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Root from './root';
+import Root from './containers/root';
 
 render(
   <AppContainer
@@ -11,10 +11,10 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept('./root', () => {
+  module.hot.accept('./containers/root', () => {
     render(
       <AppContainer
-        component={require('./root').default}
+        component={require('./containers/root').default}
       />,
       document.getElementById('app')
     );
